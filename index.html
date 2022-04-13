@@ -15,6 +15,9 @@
         width: 100%;
         height: 100%;
       }
+      input {
+        display: block;
+      }
       .main {
         width: 100%;
         height: 100%;
@@ -27,7 +30,7 @@
         height: calc(100% - 56px);
         border: #ccc 3px solid;
         position: relative;
-        margin: 10px;
+        margin: 5px;
       }
       .map > .head {
         width: 22px;
@@ -61,6 +64,11 @@
         border: none;
         box-shadow: none;
       }
+      .show {
+        position: absolute;
+        top: 3px;
+        right: 5px;
+      }
     </style>
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <script src="./js/food.js"></script>
@@ -74,7 +82,10 @@
         <button class="start btn btn-primary">开始游戏</button>
         <button class="stop btn btn-success">停止游戏</button>
         <button class="restart btn btn-danger">重新开始</button>
-        <input type="text" value="0" style="width: 100px" />
+        <div class="show">
+          <div>得分:<span class="score">0</span></div>
+          <div>level:<span class="level">1</span></div>
+        </div>
       </div>
       <div class="map">
         <!-- <div class="food"></div> -->
@@ -93,7 +104,11 @@
     // 生成蛇的模块，吃到食物给蛇加一节，移动，死亡
     // 游戏规则模块
     // 边缘检测，游戏记分
-    const game = new Game(".map");
+    const game = new Game(".map", ".score", ".level");
+    //监听屏幕发生变化，刷新食物位置
+    window.onresize = function () {
+      game.food.newFood();
+    };
     document.querySelector(".start").addEventListener("click", () => {
       game.start();
     });
