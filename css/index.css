@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.map {
+  width: 800px;
+  height: 600px;
+  border: #ccc 3px solid;
+  margin: 100px auto;
+  position: relative;
+}
+
+.map>.head {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: aqua;
+  position: absolute;
+  left: 40px;
+  top: 0;
+}
+
+.map>.body {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: aqua;
+  position: absolute;
+  left: 20px;
+  top: 0;
+}
+
+.map>.food {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: aqua;
+  position: absolute;
+  /* left: 90px;
+      top: 30px; */
+}

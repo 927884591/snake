@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>贪吃蛇</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+      .main {
+        width: 100%;
+        height: 100%;
+      }
+      .controller {
+        position: relative;
+        z-index: 1;
+      }
+      .map {
+        height: calc(100% - 56px);
+        border: #ccc 3px solid;
+        position: relative;
+        margin: 10px;
+      }
+      .map > .head {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background-color: aqua;
+        position: absolute;
+        left: 40px;
+        top: 0;
+      }
+
+      .map > .body {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: aqua;
+        position: absolute;
+        left: 20px;
+        top: 0;
+      }
+      .map > .food {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: aqua;
+        position: absolute;
+        /* left: 90px;
+        top: 30px; */
+      }
+      button:focus {
+        border: none;
+        box-shadow: none;
+      }
+    </style>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <script src="./js/food.js"></script>
+    <script src="./js/snake.js"></script>
+    <script src="./js/game.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="controller">
+        <button class="start btn btn-primary">开始游戏</button>
+        <button class="stop btn btn-success">停止游戏</button>
+        <button class="restart btn btn-danger">重新开始</button>
+        <input type="text" value="0" style="width: 100px" />
+      </div>
+      <div class="map">
+        <!-- <div class="food"></div> -->
+        <!-- <div class="body"></div>
+      <div class="head"></div> -->
+        <!-- </div> -->
+      </div>
+    </div>
+    <!-- <div class="container-fluid"> -->
+  </body>
+  <script>
+    //  分模块写
+    // 1.食物模块
+    // 生成食物，并且食物随机
+    // 2.蛇的模块
+    // 生成蛇的模块，吃到食物给蛇加一节，移动，死亡
+    // 游戏规则模块
+    // 边缘检测，游戏记分
+    const game = new Game(".map");
+    document.querySelector(".start").addEventListener("click", () => {
+      game.start();
+    });
+    document.querySelector(".stop").addEventListener("click", () => {
+      game.stop();
+    });
+    document.querySelector(".restart").addEventListener("click", () => {
+      game.restart();
+    });
+  </script>
+</html>
