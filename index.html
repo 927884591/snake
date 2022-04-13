@@ -66,8 +66,8 @@
       }
       .show {
         position: absolute;
-        top: 3px;
-        right: 5px;
+        top: 40px;
+        right: 11px;
       }
       .updown {
         display: flex;
@@ -164,15 +164,19 @@
     //移动端方向键监听
     document.querySelector(".up").addEventListener("click", () => {
       game.snake.direction = "top";
+      game.start();
     });
     document.querySelector(".down").addEventListener("click", () => {
       game.snake.direction = "buttom";
+      game.start();
     });
     document.querySelector(".left").addEventListener("click", () => {
       game.snake.direction = "left";
+      game.start();
     });
     document.querySelector(".right").addEventListener("click", () => {
       game.snake.direction = "right";
+      game.start();
     });
     //开始游戏事件监听
     document.querySelector(".start").addEventListener("click", () => {
