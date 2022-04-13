@@ -97,6 +97,7 @@
         <button class="start btn btn-primary">开始游戏</button>
         <button class="stop btn btn-success">停止游戏</button>
         <button class="restart btn btn-danger">重新开始</button>
+        <button class="mode btn btn-dark" onclick="changeM()">手机模式</button>
         <div class="show">
           <div>得分:<span class="score text-danger">0</span></div>
           <div>level:<span class="level text-danger">1</span></div>
@@ -142,6 +143,24 @@
     window.onresize = function () {
       game.food.newFood();
     };
+    //获取模式切换按钮元素
+    let changeMIn = document.querySelector(".mode");
+    //获取方向键元素
+    let updown = document.querySelector(".updown");
+    let leftright = document.querySelector(".leftright");
+    //模式切换
+    function changeM() {
+      console.log(1111);
+      if (changeMIn.innerHTML === "电脑模式") {
+        changeMIn.innerHTML = "手机模式";
+        updown.style.display = "flex";
+        leftright.style.display = "flex";
+      } else {
+        changeMIn.innerHTML = "电脑模式";
+        updown.style.display = "none";
+        leftright.style.display = "none";
+      }
+    }
     //移动端方向键监听
     document.querySelector(".up").addEventListener("click", () => {
       game.snake.direction = "top";

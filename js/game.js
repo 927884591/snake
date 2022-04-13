@@ -49,7 +49,6 @@ class Game {
     document.addEventListener("keydown", (e) => {
       e = e || window.event;
       const code = e.key;
-      console.log(code);
       switch (code) {
         case "ArrowLeft":
           this.snake.direction = "left";
@@ -58,7 +57,6 @@ class Game {
           this.snake.direction = "top";
           break;
         case "ArrowRight":
-          console.log(111);
           this.snake.direction = "right";
           break;
         case "ArrowDown":
