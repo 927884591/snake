@@ -69,6 +69,21 @@
         top: 3px;
         right: 5px;
       }
+      .updown {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        bottom: 200px;
+      }
+      .leftright {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        position: relative;
+        bottom: 300px;
+      }
     </style>
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <script src="./js/food.js"></script>
@@ -93,6 +108,24 @@
       <div class="head"></div> -->
         <!-- </div> -->
       </div>
+      <div class="updown">
+        <div class="up">
+          <img src="./img/up.png" alt="" style="width: 50px; height: 50px" />
+        </div>
+        <div style="width: 50px; height: 50px"></div>
+        <div class="down">
+          <img src="./img/down.png" alt="" style="width: 50px; height: 50px" />
+        </div>
+      </div>
+      <div class="leftright">
+        <div class="left">
+          <img src="./img/left.png" alt="" style="width: 50px; height: 50px" />
+        </div>
+        <div style="width: 50px; height: 50px"></div>
+        <div class="right">
+          <img src="./img/right.png" alt="" style="width: 50px; height: 50px" />
+        </div>
+      </div>
     </div>
     <!-- <div class="container-fluid"> -->
   </body>
@@ -109,12 +142,28 @@
     window.onresize = function () {
       game.food.newFood();
     };
+    //移动端方向键监听
+    document.querySelector(".up").addEventListener("click", () => {
+      game.snake.direction = "top";
+    });
+    document.querySelector(".down").addEventListener("click", () => {
+      game.snake.direction = "buttom";
+    });
+    document.querySelector(".left").addEventListener("click", () => {
+      game.snake.direction = "left";
+    });
+    document.querySelector(".right").addEventListener("click", () => {
+      game.snake.direction = "right";
+    });
+    //开始游戏事件监听
     document.querySelector(".start").addEventListener("click", () => {
       game.start();
     });
+    //暂停游戏事件监听
     document.querySelector(".stop").addEventListener("click", () => {
       game.stop();
     });
+    //重新开始游戏事件监听
     document.querySelector(".restart").addEventListener("click", () => {
       game.restart();
     });

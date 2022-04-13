@@ -21,9 +21,6 @@ class Game {
   start() {
     this.timer = setInterval(() => {
       //游戏开始蛇动起来
-      window.onresize = function () {
-        game.food.newFood();
-      };
       this.snake.move();
       //判断是否吃到食物了
       if (this.snake.isEat(this.food)) {
