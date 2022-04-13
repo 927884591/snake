@@ -15,7 +15,6 @@ class Snake {
     }
     //有头就计算位置
     const obj = { left: head.offsetLeft, top: head.offsetTop };
-    console.log(head.offsetLeft);
     switch (this.direction) {
       case "top":
         obj.top -= 20;
@@ -37,17 +36,13 @@ class Snake {
     //获取当前头的坐标
     const pos = this.pos();
     const head = this.snake[0];
-    console.log(this.snake);
     //把数组的第一个改成body，然后在创建一个div写成head
     if (head) {
       head.className = "body";
-      console.log(111);
-      console.log(head);
     }
     //创建一个div类为head
     const div = document.createElement("div");
     div.className = "head";
-    console.log(pos.left);
     div.style.left = pos.left + "px";
     div.style.top = pos.top + "px";
     this.snake.unshift(div);
