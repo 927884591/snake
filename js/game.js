@@ -34,7 +34,7 @@ class Game {
         clearInterval(this.timer);
         window.location.reload();
       }
-    }, 500 / this.level.innerHTML);
+    }, 200 / this.level.innerHTML);
   }
   //暂停游戏的方法
   stop() {
@@ -69,7 +69,7 @@ class Game {
   updataScore() {
     this.count++;
     this.score.innerHTML = this.count * 90 + this.level.innerHTML * 10;
-    if (this.count % 10 === 0) {
+    if (this.count % 15 === 0) {
       this.level.innerHTML++;
       this.stop();
       this.start();
