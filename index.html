@@ -86,9 +86,7 @@
       }
     </style>
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
-    <script src="./js/food.js"></script>
-    <script src="./js/snake.js"></script>
-    <script src="./js/game.js"></script>
+    <!-- <script src="./js/game.js" type="module"></script> -->
     <script src="./js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
@@ -131,18 +129,6 @@
     <!-- <div class="container-fluid"> -->
   </body>
   <script>
-    //  分模块写
-    // 1.食物模块
-    // 生成食物，并且食物随机
-    // 2.蛇的模块
-    // 生成蛇的模块，吃到食物给蛇加一节，移动，死亡
-    // 游戏规则模块
-    // 边缘检测，游戏记分
-    const game = new Game(".map", ".score", ".level");
-    //监听屏幕发生变化，刷新食物位置
-    window.onresize = function () {
-      game.food.newFood();
-    };
     //获取模式切换按钮元素
     let changeMIn = document.querySelector(".mode");
     //获取方向键元素
@@ -161,6 +147,23 @@
         leftright.style.display = "none";
       }
     }
+  </script>
+  <script type="module">
+    import Game from "./js/game.js";
+    console.log(Game);
+    //  分模块写
+    // 1.食物模块
+    // 生成食物，并且食物随机
+    // 2.蛇的模块
+    // 生成蛇的模块，吃到食物给蛇加一节，移动，死亡
+    // 游戏规则模块
+    // 边缘检测，游戏记分
+    const game = new Game(".map", ".score", ".level");
+    //监听屏幕发生变化，刷新食物位置
+    window.onresize = function () {
+      game.food.newFood();
+    };
+
     //移动端方向键监听
     document.querySelector(".up").addEventListener("click", () => {
       game.snake.direction = "top";

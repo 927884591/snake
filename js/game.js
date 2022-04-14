@@ -1,4 +1,6 @@
-class Game {
+import Food from "./food.js";
+import Snake from "./snake.js";
+export default class Game {
   constructor(map, score, level) {
     //获取map元素
     this.map = document.querySelector(map);

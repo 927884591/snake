@@ -1,4 +1,4 @@
-class Food {
+export default class Food {
   constructor(map) {
     this.map = map;
     this.food = document.createElement("div");

@@ -1,4 +1,4 @@
-class Snake {
+export default class Snake {
   constructor(map) {
     this.map = map;
     this.snake = [];
